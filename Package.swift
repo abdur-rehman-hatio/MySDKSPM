@@ -25,8 +25,8 @@ let package = Package(
         .target(
             name: "MySDKSPM",
             dependencies: [
-                "MySDK",
-                "AlertToast"
+                .target(name: "MySDK"),
+                .product(name: "AlertToast", package: "AlertToast")
             ]
         ),
         .testTarget(
