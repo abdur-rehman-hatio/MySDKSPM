@@ -30,7 +30,7 @@ let package = Package(
         ),
         .binaryTarget(
             name: "MySDK",
-            path: ".Sources/MySDK.xcframework"
+            path: "Sources/MySDK.xcframework"
         )
     ]
 )
