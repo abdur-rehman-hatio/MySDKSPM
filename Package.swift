@@ -11,26 +11,27 @@ let package = Package(
     products: [
         .library(
             name: "MySDKSPM",
-            targets: ["MySDKSPM"]),
+            targets: ["MySDKSPM"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/elai950/AlertToast", from: "1.3.9")
     ],
     targets: [
+        .binaryTarget(
+            name: "MySDK",
+            path: "Sources/MySDK.xcframework"
+        ),
         .target(
             name: "MySDKSPM",
             dependencies: [
-                .target(name: "MySDK"),
-                .product(name: "AlertToast", package: "AlertToast")
+                "MySDK",
+                "AlertToast"
             ]
         ),
         .testTarget(
             name: "MySDKSPMTests",
             dependencies: ["MySDKSPM"]
         ),
-        .binaryTarget(
-            name: "MySDK",
-            path: "Sources/MySDK.xcframework"
-        )
     ]
 )
